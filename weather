@@ -1,0 +1,25 @@
+#!/bin/bash
+
+case $1 in
+-h | --help)
+            echo "WELCOME TO WEATHER HELP"
+            echo "-3 for next 3 days of weather"
+            echo "-l or --location gives weather report of provided location"
+               ;;
+#Three days Weather data
+-3)           
+             curl "wttr.in"
+             ;;
+
+-l | --location)
+            curl "wttr.in/$2"
+             ;;
+-m1)
+            curl "wttr.in/$2?m1"
+             ;;
+#Default 1 day data if we dont provide any input
+*)
+             curl "wttr.in?m1"
+             ;;
+esac
+
